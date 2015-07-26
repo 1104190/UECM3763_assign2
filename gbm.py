@@ -27,6 +27,7 @@ S_plot= S[0:5]
 p.plot(t,S_plot.transpose());
 p.xlabel('Time, t');
 p.ylabel('Stock prices, RM');
+p.title('5 REALIZATIONS OF THE GEOMETRIC BROWNIAN MOTION')
 p.show();
 
 # Calculate the expected value of S(3)
@@ -38,14 +39,14 @@ print('Expected value, E[S(3)] = ',expected_price_S3);
 variance_S3 = np.var(last_price_x);
 print('Variance, Var[S(3)] = ',variance_S3);
 
-# Calculate the P[S(3)>39]
+# Calculate P[S(3)>39]
 y = last_price_x > 39; #find out all the values that are larger than 39
-total = sum(y) #add together all the values that are larger than 39 
+total = p.sum(y) #add together all the values that are larger than 39 
 probability= total/n_path 
 print('P[S(3)>39] = ' ,probability);
 
 # Calculate E[S(3)|S(3)>39]
-z = sum(last_price_x * y) 
+z = p.sum(last_price_x * y) 
 expected_value = z/total
 print('E[S(3)|S(3)>39] = ' ,expected_value);
  

@@ -28,7 +28,7 @@ R_plot= R[0:5,:-1]
 p.plot(T,R_plot.transpose());
 p.xlabel('Time, t');
 p.ylabel('R(t)');
-p.title('5 REALIZATIONS OF THE MEAN REVERSAL PROCESS')
+p.title('5 REALIZATIONS OF THE MEAN REVERSAL ')
 p.show()
 
 # Calculate the expected value of R(1)
@@ -38,7 +38,7 @@ print('Expected Value, E[R(1)] = ' ,expected_value_R1)
 
 # Calculate the P[R(1)>2]
 y = x > 2;
-total = sum(y)
+total = p.sum(y)
 probability = total/n_path
 print('P[R(1)>2] = ' ,probability)
 
